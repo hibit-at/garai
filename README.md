@@ -1,2 +1,2 @@
-# kanahebi
-qualifier system for kanahebi tournament
+# garai
+qualifier system for garai tournament
