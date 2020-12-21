@@ -31,6 +31,7 @@ async def qual(ctx):
             names = s.select('.songTop.pp')
             accs = s.select('.scoreBottom')
             for n,a in zip(names,accs):
+                print(n.text)
                 if n.text in songs:
                     notes = data.at['notes',n.text]
                     if 'score' in a.text:
