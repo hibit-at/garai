@@ -37,6 +37,7 @@ async def qual(ctx):
                         score = int(a.text[7:-3].replace(',',''))
                         acc = score/(115*8*int(notes)-7245)*100
                         acc = Decimal(str(acc)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+                        acc = float(acc)
                         # acc = int(acc*100)
                         # acc = float(acc)/100
                     else:
