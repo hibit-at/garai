@@ -21,6 +21,10 @@ async def qual(ctx):
         data_s = num_data.sort_values(song,ascending=False)
         return data_s.index.get_loc(name)+1
 
+    channel = bot.get_channel(MESSAGE_CHANNEL_ID)
+    await channel.send("得点を解析するビ！")
+    
+
     for name,url in zip(data.index.values[1:],data.ScoreSaberID[1:]):
         print("scraping {} #debug".format(name))
         for p in range(1,scraping_range+1):
@@ -82,12 +86,16 @@ async def qual(ctx):
 
     channel = bot.get_channel(LEADERBOARD_CHANNEL_ID)
     lid = channel.last_message_id
+    print(lid)
     last_message = await channel.fetch_message(lid)
     await last_message.edit(content=text) #honban
     # await ctx.send(text) #debug
 
     data.to_csv('data.csv')
     print("done")
+
+    channel = bot.get_channel(MESSAGE_CHANNEL_ID)
+    await channel.send("解析終了しました")
     
 print("bot running...")
 bot.run(DISCORD_TOKEN)
