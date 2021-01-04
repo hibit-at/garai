@@ -68,8 +68,10 @@ async def qual(ctx):
             count -= 1
             text += '-- {} ... {}pt\n'.format(t,score)
         else:
+            if count==9:
+                text+= '【※補欠】'
             text += '#{} **{}** ... {}pt\n'.format(count,t,score)
-            if count==8:
+            if count==9:
                 text += '🧱🧱🧱🧱🧱🧱 本選進出の壁 🧱🧱🧱🧱🧱🧱\n'
 
     for song in songs:
